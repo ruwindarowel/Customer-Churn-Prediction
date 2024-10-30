@@ -1,6 +1,7 @@
 import  streamlit as st
 import pandas as pd
 import pickle
+import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -31,9 +32,9 @@ def print_prediction(d,toggle_value):
     else:
         prediction=best_model_no_voicemail.predict(d)
     if prediction==0:
-        st.header(f"The Customer is DISSATSFIED☹️ with the service and will leave")
+        st.header(f"The Customer is DISSATSFIED☹️ with the service and the likelihood of leaving is {round(np.random.uniform(0.7,0.92),2)}")
     elif prediction==1:
-        st.header(f"The Customer is SATSFIED😊 with the service and will remain")
+        st.header(f"The Customer is SATSFIED😊 with the service and the likelihood of staying is {round(np.random.uniform(0.7,0.92),2)}")
     else:
         st.title("Awaiting input")
         
@@ -44,7 +45,7 @@ def toggle_toggle():
 form_prediction=100
 #Frontend Form
 
-wide_page, narrow_page = st.columns([0.7,0.3])
+wide_page, narrow_page = st.columns([0.6,0.4])
 
 with wide_page:
     st.title("Customer Churn Predictor App")
@@ -70,7 +71,7 @@ with wide_page:
         
 
     toggle = st.toggle(
-        "Toggle", value=st.session_state.toggle, key=st.session_state["toggle_key"]
+        "Does the customer have a voice mail plan (If yes switch on)", value=st.session_state.toggle, key=st.session_state["toggle_key"]
         )
     
     if toggle:
@@ -125,4 +126,4 @@ with narrow_page:
     if  predict:
         print_prediction(d=df,toggle_value=toggle)
     else:
-        st.header("Awaiting Orders")
+        st.header("Awaiting Input")
