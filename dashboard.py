@@ -81,7 +81,7 @@ with st.sidebar:
         df = df_main
     interested_variable = st.selectbox("Voice Quant to View",quants)
     
-    st.button('Change',on_click=print(voicemail_plan))
+
     
 st.title("Customer Dashboard")
 
