@@ -65,6 +65,7 @@ st.markdown("""
 
 #def change_df(df):
     
+df_main = pd.read_csv('churn.csv')
 df = pd.read_csv('churn.csv')
 quants = list(df.columns)
 del quants[quants.index('internationalplan')]
@@ -72,8 +73,12 @@ del quants[quants.index('churn')]
 
 with st.sidebar:
     st.header("Consumder Dashboard")
-    voicemail_plan = st.multiselect("VoiceMail Plan",['Yes','No'])
+    voicemail_plan = st.multiselect("VoiceMail Plan",['yes','no'])
     
+    if len(voicemail_plan) == 1:
+        df = df_main.loc[df_main['voicemailplan']==voicemail_plan[0],:]
+    else:
+        df = df_main
     interested_variable = st.selectbox("Voice Quant to View",quants)
     
     st.button('Change',on_click=print(voicemail_plan))
