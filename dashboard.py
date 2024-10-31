@@ -65,7 +65,7 @@ st.markdown("""
 
 #def change_df(df):
     
-df = pd.read_csv('../dashboard/churn.csv')
+df = pd.read_csv('churn.csv')
 quants = list(df.columns)
 del quants[quants.index('internationalplan')]
 del quants[quants.index('churn')]
