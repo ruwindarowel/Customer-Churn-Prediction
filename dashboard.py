@@ -121,11 +121,9 @@ with col_1:
     
 with col_2:
     crosstab = pd.crosstab(df['churn'], df['internationalplan'])
-    print(crosstab)
-    crosstab_melted = crosstab.melt(id_vars='churn', var_name='internationalplan', value_name='Counts')
+    melted_crosstab = crosstab.reset_index().melt(id_vars='churn', var_name='internationalplan', value_name='count')
     # Create a heatmap using Plotly
-    #fig = px.density_heatmap(crosstab_melted, x='internationalplan', y='churn', z='Counts',color_continuous_scale="YlGnBu", title="Heatmap of Crosstab")
-    
-    #st.plotly_chart(fig)
+    fig = px.density_heatmap(melted_crosstab, x='churn', y='internationalplan', z='count', color_continuous_scale='Viridis')
+    st.plotly_chart(fig)
     
 
