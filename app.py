@@ -57,17 +57,17 @@ with wide_page:
         
         #column 1
     with col1:
-        totaldayminutes = st.number_input("Total day minutes",1,250)
-        totaleveminutes = st.number_input("Total eve minutes",1,250)
-        totalnightminutes = st.number_input("Total  Night minutes",1,250)
-        totalintlminutes = st.number_input("Total Int Minutes",1,250)
+        totaldayminutes = st.number_input("Total day minutes",1,500)
+        totaleveminutes = st.number_input("Total eve minutes",1,500)
+        totalnightminutes = st.number_input("Total  Night minutes",1,500)
+        totalintlminutes = st.number_input("Total Int Minutes",1,500)
         
         #column 2
     with col2:
-        totaldaycalls = st.number_input("Total Day Calls",1,250)
-        totalevecalls = st.number_input("Total Eve Calls",1,250)
-        totalnightcalls = st.number_input("Total Night Calls",1,250)
-        totalintlcalls = st.number_input("Total Intl Calls",1,250)
+        totaldaycalls = st.number_input("Total Day Calls",1,500)
+        totalevecalls = st.number_input("Total Eve Calls",1,500)
+        totalnightcalls = st.number_input("Total Night Calls",1,500)
+        totalintlcalls = st.number_input("Total Intl Calls",1,500)
         
 
     toggle = st.toggle(
@@ -75,7 +75,7 @@ with wide_page:
         )
     
     if toggle:
-        d=10
+        d=60
     else:
         d=0
         
