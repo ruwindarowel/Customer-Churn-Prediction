@@ -50,7 +50,7 @@ wide_page, narrow_page = st.columns([0.6,0.4])
 with wide_page:
     st.title("Customer Churn Predictor App")
     internationalplan = st.selectbox("Does the customer have an international plan?",["Yes","No"])
-    accountlength = st.number_input("Number of years customer has been in service?",1,250)
+    accountlength = st.number_input("Number of months customer has been in service?",1,250)
     numbercustomerservicecalls = st.number_input("Number of customer service calls made",0,9)
    
     col1, col2 = st.columns(2)

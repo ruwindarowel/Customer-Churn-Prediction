@@ -117,18 +117,20 @@ with col3:
 
 col_1, col_2 = st.columns(2)
 with col_1:
+    st.header("Churn Status")
     labels = ['Stayed','Left']
     # Create a pie chart
-    fig = px.pie(names=labels, values=list(df['churn'].value_counts()), title="Pie Chart of Churn Status")
+    fig = px.pie(names=labels, values=list(df['churn'].value_counts()))
 
     # Display the pie chart in Streamlit
     st.plotly_chart(fig)
     
 with col_2:
+    st.header("Churn Status vs. International Plan")
     crosstab = pd.crosstab(df['churn'], df['internationalplan'])
     melted_crosstab = crosstab.reset_index().melt(id_vars='churn', var_name='internationalplan', value_name='count')
     # Create a heatmap using Plotly
-    fig = px.density_heatmap(melted_crosstab, x='churn', y='internationalplan', z='count', color_continuous_scale='Viridis')
+    fig = px.density_heatmap(melted_crosstab, x='churn', y='internationalplan', z='count', color_continuous_scale='Blues')
     st.plotly_chart(fig)
     
 
