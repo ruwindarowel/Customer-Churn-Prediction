@@ -31,9 +31,9 @@ def print_prediction(d,toggle_value):
         prediction=best_model_yes_voicemail.predict(d)
     else:
         prediction=best_model_no_voicemail.predict(d)
-    if prediction==0:
+    if prediction==1:
         st.header(f"The Customer is DISSATSFIED☹️ with the service and the likelihood of leaving is {round(np.random.uniform(0.7,0.92),2)}")
-    elif prediction==1:
+    elif prediction==0:
         st.header(f"The Customer is SATSFIED😊 with the service and the likelihood of staying is {round(np.random.uniform(0.7,0.92),2)}")
     else:
         st.title("Awaiting input")
